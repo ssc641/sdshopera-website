@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SD Shopera Danceny Furnitures — Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">SD</div>
+        <div>
+          <div class="brand-name">SD Shopera Danceny Furnitures</div>
+          <div class="tagline">Modern & classic furniture</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html" class="active">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button class="secondary">Cart</button>
+        <button class="btn">Shop now</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1>Shop Furniture</h1>
+      <p>Browse our full collection of sofas, beds, dining sets, and more.</p>
+
+      <div class="search">
+        <input type="search" placeholder="Search products..." />
+        <button class="btn">Search</button>
+      </div>
+
+      <div class="filters">
+        <button class="btn">All</button>
+        <button class="btn">Sofas</button>
+        <button class="btn">Beds</button>
+        <button class="btn">Dining</button>
+        <button class="btn">Storage</button>
+      </div>
+
+      <div class="grid">
+        <article class="product" data-category="sofas">
+          <img src="images/luna-sofa.jpg" alt="Luna Sofa Set" />
+          <div class="product-info">
+            <h3>Luna Sofa Set</h3>
+            <p>$899</p>
+            <button class="btn add-to-cart" data-product="Luna Sofa Set" data-price="899">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="beds">
+          <img src="images/maple-bed.jpg" alt="Maple Bed Frame" />
+          <div class="product-info">
+            <h3>Maple Bed Frame</h3>
+            <p>$699</p>
+            <button class="btn add-to-cart" data-product="Maple Bed Frame" data-price="699">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="dining">
+          <img src="images/willow-dining.jpg" alt="Willow Dining Set" />
+          <div class="product-info">
+            <h3>Willow Dining Set</h3>
+            <p>$999</p>
+            <button class="btn add-to-cart" data-product="Willow Dining Set" data-price="999">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="storage">
+          <img src="images/birch-wardrobe.jpg" alt="Birch Wardrobe" />
+          <div class="product-info">
+            <h3>Birch Wardrobe</h3>
+            <p>$549</p>
+            <button class="btn add-to-cart" data-product="Birch Wardrobe" data-price="549">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">SD Shopera Danceny Furnitures</div>
+        <div class="footer-note">Made with care. © <span id="year"></span></div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <div class="footer-title">Support</div>
+          <div class="footer-text">help@sd-furnitures.example</div>
+        </div>
+        <div class="footer-section">
+          <div class="footer-title">Shop</div>
+          <div class="footer-text">Sofas · Dining · Bedroom</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+          const product = button.dataset.product;
+          const price = button.dataset.price;
+          cart.push({ product, price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+          alert(`${product} added to cart!`);
+        });
+      });
+
+      document.querySelectorAll('.filters .btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const category = button.textContent.toLowerCase();
+          document.querySelectorAll('.product').forEach(product => {
+            const productCategory = product.dataset.category;
+            product.style.display = (category === 'all' || productCategory === category) ? 'block' : 'none';
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
