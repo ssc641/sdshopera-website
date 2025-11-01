@@ -17,14 +17,26 @@
         <div class="tagline">Modern & classic furniture</div>
       </div>
     </div>
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="cart.html">Cart</a></li>
-      </ul>
-    </nav>
+
+      <!-- Top Navbar (for desktop only) -->
+<nav id="main-navbar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="Contact.html">Contact</a>
+</nav>
+
+<!-- Hamburger Icon (mobile only) -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- Sidebar Menu (mobile only) -->
+<div id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="Contact.html">Contact</a>
+</div>
+    
     <div class="actions">
       <a href="cart.html">
   <button class="secondary">Cart</button>
