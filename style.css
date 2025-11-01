@@ -379,11 +379,12 @@ section {
   background-color: #f9f9f9;
   border-radius: 8px;
 }
-/* Sidebar base */
+
+/* Hide sidebar by default */
 #sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
+  left: -250px; /* Hidden off-screen */
   width: 200px;
   height: 100%;
   background-color: #333;
@@ -392,6 +393,7 @@ section {
   z-index: 1000;
 }
 
+/* Sidebar links */
 #sidebar a {
   display: block;
   color: white;
@@ -415,24 +417,17 @@ section {
   left: 10px;
   z-index: 1001;
 }
-/* Show sidebar and hamburger only on screens smaller than 768px */
-@media (max-width: 767px) {
-  #sidebar,
-  .menu-toggle {
-    display: block;
-  }
+
+/* Show sidebar when active */
+.sidebar-open #sidebar {
+  left: 0;
 }
 
-/* Hide sidebar and hamburger on desktop */
+/* Show sidebar only on mobile */
 @media (min-width: 768px) {
   #sidebar,
   .menu-toggle {
     display: none;
-  }
-
-  /* Optional: show your top navbar here */
-  nav {
-    display: flex;
   }
 }
 
