@@ -39,6 +39,35 @@ header {
   flex-wrap: wrap;
 }
 
+/* Hide top navbar on screens smaller than 768px */
+@media (max-width: 767px) {
+  #main-navbar {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #sidebar {
+    display: block;
+  }
+}
+
+/* Show top navbar on desktop */
+@media (min-width: 768px) {
+  #main-navbar {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu-toggle,
+  #sidebar {
+    display: none;
+  }
+}
+
+
 .brand {
   display: flex;
   align-items: center;
