@@ -26,6 +26,17 @@
            <li><a href="Contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
+        <!-- ☰ Hamburger Icon -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- 📋 Sidebar Menu -->
+<div id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 
       <div class="actions">
         <button class="secondary" aria-label="Open cart">Cart</button>
@@ -219,8 +230,15 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+    <script>
+  function toggleSidebar() {
+    document.body.classList.toggle('sidebar-open');
+  }
+</script>
+
 </body>
 </html>
+
 
 
 
