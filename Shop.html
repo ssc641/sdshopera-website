@@ -16,18 +16,34 @@
           <div class="tagline">Modern & classic furniture</div>
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html" class="active">Shop</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="cart.html">Cart</a></li>
-        </ul>
-      </nav>
+      <nav id="main-navbar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
       <div class="actions">
-        <button class="secondary">Cart</button>
-        <button class="btn">Shop now</button>
+        <a href="cart.html">
+  <button class="secondary">Cart</button>
+</a>
+
+        <a href="Shop.html">
+  <button class="secondary">Shop Now</button>
+</a>
+
+        <!-- ☰ Hamburger Icon -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- 📋 Sidebar Menu -->
+<div id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
       </div>
     </div>
   </header>
@@ -61,11 +77,11 @@
         </article>
 
         <article class="product" data-category="beds">
-          <img src="images/maple-bed.jpg" alt="Maple Bed Frame" />
-          <div class="product-info">
-            <h3>Maple Bed Frame</h3>
+          <img src="images/fridges.png" alt="Frigde" />
+          <div class="Capri Fridges 390L ">
+            <h3>Fridge</h3>
             <p>$699</p>
-            <button class="btn add-to-cart" data-product="Maple Bed Frame" data-price="699">Add to Cart</button>
+            <button class="btn add-to-cart" data-product="Capri fridge 390L" data-price="699">Add to Cart</button>
           </div>
         </article>
 
@@ -79,11 +95,29 @@
         </article>
 
         <article class="product" data-category="storage">
-          <img src="images/birch-wardrobe.jpg" alt="Birch Wardrobe" />
-          <div class="product-info">
-            <h3>Birch Wardrobe</h3>
+          <img src="images/table.png" alt="Table" />
+          <div class="Coffee Table">
+            <h3>Coffee Table</h3>
             <p>$549</p>
-            <button class="btn add-to-cart" data-product="Birch Wardrobe" data-price="549">Add to Cart</button>
+            <button class="btn add-to-cart" data-product="Coffee Table" data-price="549">Add to Cart</button>
+          </div>
+        </article>
+
+         <article class="product" data-category="sofas">
+          <img src="images/leather sofa.png" alt="leather sofa set" />
+          <div class="Sofas">
+            <h3>leather sofa black</h3>
+            <p>$549</p>
+            <button class="btn add-to-cart" data-product="Leathersofa black" data-price="549">Add to Cart</button>
+          </div>
+        </article>
+
+         <article class="product" data-category="sofas">
+          <img src="images/sofa.png" alt="Sofa Set" />
+          <div class="product-info">
+            <h3>Sofa Set</h3>
+            <p>$899</p>
+            <button class="btn add-to-cart" data-product="Sofa Set" data-price="899">Add to Cart</button>
           </div>
         </article>
       </div>

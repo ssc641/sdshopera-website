@@ -19,14 +19,26 @@
         </div>
       </div>
 
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="Shop.html" class="nav-link">Shope</a></li>
-          <li><a href="#">About</a></li>
-           <li><a href="Contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+     <!-- Top Navbar (for desktop only) -->
+<nav id="main-navbar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="Contact.html">Contact</a>
+</nav>
+
+<!-- Hamburger Icon (mobile only) -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- Sidebar Menu (mobile only) -->
+<div id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="Contact.html">Contact</a>
+</div>
+
+
 
       <div class="actions">
         <button class="secondary" aria-label="Open cart">Cart</button>
@@ -220,8 +232,17 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+    <script>
+  function toggleSidebar() {
+    document.body.classList.toggle('sidebar-open');
+  }
+</script>
+
 </body>
 </html>
+
+
+
 
 
 

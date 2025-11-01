@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SSC Furnitures — Home</title>
+  <title>SD Furnitures — Home</title>
   <meta name="description" content="Quality modern and classic furnitures just for you. Browse sofas, tables, chairs and more." />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,15 +18,57 @@
         </div>
       </div>
 
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="Shope.html" class="nav-link">Shope</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="Contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+       <!-- Top Navbar (for desktop only) -->
+<nav id="main-navbar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="Contact.html">Contact</a>
+</nav>
+
+<!-- Hamburger Icon (mobile only) -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- Sidebar Menu (mobile only) -->
+<div id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="Contact.html">Contact</a>
+</div>
+
+    <!-- 📍 Map Section -->
+<section id="location">
+  <h2>Find Us</h2>
+  <iframe
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d209.905384826597!2d29.812575195303264!3d-19.45450851518678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1934949885948d65%3A0xc85c597c7e2dc363!2s179%20Leopold%20Takawira%20Ave%2C%20Gweru!5e1!3m2!1sen!2szw!4v1761971110379!5m2!1sen!2szw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    width="100%"
+    height="300"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- 📩 Contact Form Section -->
+<section id="contact-form">
+  <h2>Send Us a Message</h2>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- 💬 WhatsApp Section -->
+<section id="whatsapp">
+  <h2>Chat with Us</h2>
+  <a href="https://wa.me/263 775949965" target="_blank">
+    <button class="secondary">Chat on WhatsApp</button>
+  </a>
+</section>
+
   </header>
 </body>
 </html>
