@@ -475,10 +475,12 @@ section {
     display: none;
   }
 }
+
 #about-contact {
-  margin: 40px 0;
+  max-width: 1000px;
+  margin: 40px auto;
   padding: 20px;
-  background-color: #fdfdfd;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
@@ -502,5 +504,11 @@ section {
   margin-bottom: 10px;
   font-size: 16px;
 }
+.map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 
 
