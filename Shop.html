@@ -16,22 +16,33 @@
           <div class="tagline">Modern & classic furniture</div>
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html" class="active">Shop</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="cart.html">Cart</a></li>
-        </ul>
-      </nav>
+      <nav id="main-navbar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
       <div class="actions">
         <a href="cart.html">
   <button class="secondary">Cart</button>
 </a>
 
-        <a href="shop.html">
+        <a href="Shop.html">
   <button class="secondary">Shop Now</button>
 </a>
+
+        <!-- ☰ Hamburger Icon -->
+<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+<!-- 📋 Sidebar Menu -->
+<div id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="Shop.html">Shop</a>
+  <a href="cart.html">Cart</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 
       </div>
     </div>
