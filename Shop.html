@@ -160,6 +160,18 @@
   </footer>
 
   <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    if (sidebar.style.left === "0px") {
+      sidebar.style.left = "-250px";
+    } else {
+      sidebar.style.left = "0px";
+    }
+  }
+</script>
+
+
+  <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     window.addEventListener('DOMContentLoaded', () => {
