@@ -510,5 +510,51 @@ section {
   padding: 20px;
 }
 
+#slideshow {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+
 
 
