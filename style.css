@@ -543,7 +543,7 @@ button.prev, button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #333;
+  background: rgba(0,0,0,0.4);
   color: white;
   border: none;
   padding: 10px;
