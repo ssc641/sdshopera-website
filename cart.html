@@ -99,17 +99,24 @@
     let total = 0;
     let itemCount = 0;
 
-    cartItems.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'cart-item';
-      div.innerHTML = `
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <img src="${item.image}" alt="${item.product}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 15px;">
-          <div>
-            <h4>${item.product}</h4>
-            <p>Price: $${parseFloat(item.price).toFixed(2)}</p>
-          </div>
-        </div>
+  cartItems.forEach((item, index) => {
+  const div = document.createElement('div');
+  div.className = 'cart-item';
+  div.innerHTML = `
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img src="${item.image}" alt="${item.product}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 15px;">
+      <div>
+        <h4>${item.product}</h4>
+        <p>Price: $${parseFloat(item.price).toFixed(2)}</p>
+        <button onclick="removeFromCart(${index})" style="margin-top:5px;">Remove</button>
+      </div>
+    </div>
+  `;
+  cartContainer.appendChild(div);
+  total += parseFloat(item.price);
+  itemCount++;
+});
+
       `;
       cartContainer.appendChild(div);
       total += parseFloat(item.price);
@@ -159,6 +166,15 @@
     alert("Order submitted! We’ll confirm once payment reflects.");
     window.location.href = "thank-you.html"; // or redirect to dashboard.html if you prefer
   });
+</script>
+  <script>
+    function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1); // Remove item at that index
+  localStorage.setItem("cart", JSON.stringify(cart));
+  location.reload(); // Refresh the page to update cart view
+}
+
 </script>
 
 </body>
