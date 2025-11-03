@@ -99,12 +99,18 @@
       sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
     }
 
-    function addToCart(product, price, image) {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push({ product, price, image });
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Item added to cart!");
-    }
+    function addToCart(product, price, image, quantityId) {
+  const quantity = parseInt(document.getElementById(quantityId).value) || 1;
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  for (let i = 0; i < quantity; i++) {
+    cart.push({ product, price, image });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${quantity} item(s) added to cart!`);
+}
+
   </script>
 </body>
 </html>
