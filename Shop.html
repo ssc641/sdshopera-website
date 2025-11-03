@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SD Shopera Danceny Furnitures — Shop</title>
+  <title>Shop — SD Shopera Danceny Furnitures</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="brand">
@@ -16,191 +17,85 @@
           <div class="tagline">Modern & classic furniture</div>
         </div>
       </div>
+
       <nav id="main-navbar">
-  <a href="index.html">Home</a>
-  <a href="Shop.html">Shop</a>
-  <a href="cart.html">Cart</a>
-  <a href="Contact.html">Contact</a>
-</nav>
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+
+      <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+      <div id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="Contact.html">Contact</a>
+      </div>
 
       <div class="actions">
-        <a href="cart.html">
-  <button class="secondary">Cart</button>
-</a>
-
-        <a href="Shop.html">
-  <button class="secondary">Shop Now</button>
-</a>
-
-        <!-- ☰ Hamburger Icon -->
-<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
-
-<!-- 📋 Sidebar Menu -->
-<div id="sidebar">
-  <a href="index.html">Home</a>
-  <a href="Shop.html">Shop</a>
-  <a href="cart.html">Cart</a>
-  <a href="Contact.html">Contact</a>
-</div>
-
-
+        <a href="cart.html"><button class="secondary">Cart</button></a>
+        <a href="shop.html" target="_blank"><button class="secondary">Shop Now</button></a>
       </div>
     </div>
   </header>
 
+  <!-- Main Shop Section -->
   <main class="container">
     <section class="section">
-      <h1>Shop Furniture</h1>
-      <p>Browse our full collection of sofas, beds, dining sets, and more.</p>
+      <h1>Our Furniture Collection</h1>
 
-      <div class="search">
-        <input type="search" placeholder="Search products..." />
-        <button class="btn">Search</button>
-      </div>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="images/sofa.png" alt="3-Seater Sofa" />
+          <h3>3-Seater Sofa</h3>
+          <p>$120.00</p>
+          <button onclick="addToCart('3-Seater Sofa', 120.00, 'images/sofa.png')">Add to Cart</button>
+        </div>
 
-      <div class="filters">
-        <button class="btn">All</button>
-        <button class="btn">Sofas</button>
-        <button class="btn">Beds</button>
-        <button class="btn">Dining</button>
-        <button class="btn">Storage</button>
-      </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="images/table.png" alt="Coffee Table" />
+          <h3>Coffee Table</h3>
+          <p>$45.00</p>
+          <button onclick="addToCart('Coffee Table', 45.00, 'images/table.png')">Add to Cart</button>
+        </div>
 
-      <div class="grid">
-        <article class="product" data-category="sofas">
-          <img src="images/sofaimg.jpg" alt="Luna Sofa Set" />
-          <div class="product-info">
-            <h3>Luna Sofa Set</h3>
-            <p>$899</p>
-            <button class="btn add-to-cart" data-product="Luna Sofa Set" data-price="899">Add to Cart</button>
-          </div>
-        </article>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="images/wardrobe.png" alt="Wardrobe" />
+          <h3>Wardrobe</h3>
+          <p>$150.00</p>
+          <button onclick="addToCart('Wardrobe', 150.00, 'images/wardrobe.png')">Add to Cart</button>
+        </div>
 
-        <article class="product" data-category="beds">
-          <img src="images/simple bed.png" alt="bed" />
-          <div class="Bed ">
-            <h3>Bed</h3>
-            <p>$699</p>
-            <button class="btn add-to-cart" data-product="simple bed" data-price="699">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="product" data-category="dining">
-          <img src="images/willow-dining.jpg" alt="Willow Dining Set" />
-          <div class="product-info">
-            <h3>Willow Dining Set</h3>
-            <p>$999</p>
-            <button class="btn add-to-cart" data-product="Willow Dining Set" data-price="999">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="product" data-category="storage">
-          <img src="images/Wardrobe 2.png" alt="Wardrobe" />
-          <div class="Wardrobe">
-            <h3>Coffee Table</h3>
-            <p>$549</p>
-            <button class="btn add-to-cart" data-product="Coffee Table" data-price="549">Add to Cart</button>
-          </div>
-        </article>
-
-         <article class="product" data-category="sofas">
-          <img src="images/.png" alt="leather sofa set" />
-          <div class="Sofas">
-            <h3>leather sofa black</h3>
-            <p>$549</p>
-            <button class="btn add-to-cart" data-product="Leathersofa black" data-price="549">Add to Cart</button>
-          </div>
-        </article>
-
-        
-
-         <article class="product" data-category="storage">
-          <img src="images/Wardrobe 4.png" alt="Wardrobe Set" />
-          <div class="product-info">
-            <h3>Wardrobe</h3>
-            <p>$899</p>
-            <button class="btn add-to-cart" data-product="Waldrop" data-price="899">Add to Cart</button>
-          </div>
-        </article>
-
-        
-        <article class="product" data-category="storage">
-          <img src="images/kitchen unit(2).png" alt="Kirtchen  unit" />
-          <div class="product-info">
-            <h3>Kitchen unit</h3>
-            <p>$899</p>
-            <button class="btn add-to-cart" data-product="Kitchen Unit" data-price="899">Add to Cart</button>
-          </div>
-        </article>
-        
-
-        
-        
+        <!-- Add more products as needed -->
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="brand-name">SD Shopera Danceny Furnitures</div>
-        <div class="footer-note">Made with care. © <span id="year"></span></div>
-      </div>
-      <div class="footer-links">
-        <div class="footer-section">
-          <div class="footer-title">Support</div>
-          <div class="footer-text">help@sd-furnitures.example</div>
-        </div>
-        <div class="footer-section">
-          <div class="footer-title">Shop</div>
-          <div class="footer-text">Sofas · Dining · Bedroom</div>
-        </div>
-      </div>
-    </div>
+    <p>© <span id="year"></span> SD Shopera Danceny Furnitures</p>
   </footer>
 
-  <script>
-  function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.left === "0px") {
-      sidebar.style.left = "-250px";
-    } else {
-      sidebar.style.left = "0px";
-    }
-  }
-</script>
-
-
+  <!-- Scripts -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    window.addEventListener('DOMContentLoaded', () => {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
 
-      document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-          const product = button.dataset.product;
-          const price = button.dataset.price;
-          cart.push({ product, price });
-          localStorage.setItem('cart', JSON.stringify(cart));
-          alert(`${product} added to cart!`);
-        });
-      });
-
-      document.querySelectorAll('.filters .btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const category = button.textContent.toLowerCase();
-          document.querySelectorAll('.product').forEach(product => {
-            const productCategory = product.dataset.category;
-            product.style.display = (category === 'all' || productCategory === category) ? 'block' : 'none';
-          });
-        });
-      });
-    });
+    function addToCart(product, price, image) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ product, price, image });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Item added to cart!");
+    }
   </script>
 </body>
 </html>
-
-
-
-
