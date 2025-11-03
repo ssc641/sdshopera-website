@@ -7,91 +7,135 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Header content here -->
-     <header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="logo">SD</div>
-      <div>
-        <div class="brand-name">SD Shopera Danceny Furnitures</div>
-        <div class="tagline">Modern & classic furniture</div>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">SD</div>
+        <div>
+          <div class="brand-name">SD Shopera Danceny Furnitures</div>
+          <div class="tagline">Modern & classic furniture</div>
+        </div>
+      </div>
+
+      <nav id="main-navbar">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+
+      <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+
+      <div id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="Contact.html">Contact</a>
+      </div>
+
+      <div class="actions">
+        <a href="cart.html"><button class="secondary">Cart</button></a>
+        <a href="shop.html" target="_blank"><button class="secondary">Shop Now</button></a>
       </div>
     </div>
-
-      <!-- Top Navbar (for desktop only) -->
-<nav id="main-navbar">
-  <a href="index.html">Home</a>
-  <a href="Shop.html">Shop</a>
-  <a href="cart.html">Cart</a>
-  <a href="Contact.html">Contact</a>
-</nav>
-
-<!-- Hamburger Icon (mobile only) -->
-<div class="menu-toggle" onclick="toggleSidebar()">☰</div>
-
-<!-- Sidebar Menu (mobile only) -->
-<div id="sidebar">
-  <a href="index.html">Home</a>
-  <a href="Shop.html">Shop</a>
-  <a href="cart.html">Cart</a>
-  <a href="Contact.html">Contact</a>
-</div>
-    
-    <div class="actions">
-      <a href="cart.html">
-  <button class="secondary">Cart</button>
-</a>
-
-      <a href="shop.html" target="_blank">
-  <button class="secondary">Shop Now</button>
-</a>
-
-    </div>
-  </div>
-
-
   </header>
 
+  <!-- Main -->
   <main class="container">
     <section class="section">
       <h1>Your Cart</h1>
+
+      <p style="background:#e6f7ff; padding:10px; border-left:4px solid #0077cc;">
+        <strong>Buying for family in Zimbabwe?</strong><br>
+        Add items to your cart, enter your recipient’s details at checkout, and we’ll deliver directly to them. You’ll receive confirmation once payment reflects.
+      </p>
+
       <div id="cart-items"></div>
-      <h3>Total: $<span id="cart-total">0</span></h3>
+
+      <div id="cart-summary">
+        <h3>Total Items: <span id="total-items">0</span></h3>
+        <h3>Total Price: $<span id="cart-total">0.00</span></h3>
+        <button onclick="showCheckout()">Proceed to Checkout</button>
+      </div>
+    </section>
+
+    <section id="checkout" style="display: none;">
+      <h2>Checkout</h2>
+      <form id="checkout-form">
+        <h3>Recipient Details (in Zimbabwe)</h3>
+        <input type="text" name="name" placeholder="Recipient Full Name" required />
+        <input type="text" name="phone" placeholder="Recipient Phone Number" required />
+        <textarea name="address" placeholder="Delivery Address in Zimbabwe" required></textarea>
+
+        <h3>Payment Method</h3>
+        <select name="payment_method" required>
+          <option value="">Select Payment Method</option>
+          <option value="ecocash">EcoCash</option>
+          <option value="innbucks">InnBucks</option>
+          <option value="diaspora">Diaspora Payment (contact us)</option>
+        </select>
+        <input type="text" name="reference" placeholder="Transaction Reference or Diaspora Note" required />
+
+        <button type="submit">Submit Order</button>
+      </form>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> SD Shopera Danceny Furnitures</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const cartContainer = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
+    const totalItemsEl = document.getElementById('total-items');
 
     let total = 0;
+    let itemCount = 0;
+
     cartItems.forEach(item => {
       const div = document.createElement('div');
-      div.innerHTML = `<p>${item.product} - $${item.price}</p>`;
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <img src="${item.image}" alt="${item.product}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 15px;">
+          <div>
+            <h4>${item.product}</h4>
+            <p>Price: $${parseFloat(item.price).toFixed(2)}</p>
+          </div>
+        </div>
+      `;
       cartContainer.appendChild(div);
       total += parseFloat(item.price);
+      itemCount++;
     });
 
     cartTotal.textContent = total.toFixed(2);
-  </script>
-<script>
-  function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.left === "0px") {
-      sidebar.style.left = "-250px";
-    } else {
-      sidebar.style.left = "0px";
-    }
-  }
-</script>
+    totalItemsEl.textContent = itemCount;
 
-  
+    function showCheckout() {
+      document.getElementById("checkout").style.display = "block";
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
+
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Order submitted! We’ll confirm once payment reflects.");
+      localStorage.removeItem("cart");
+      window.location.href = "thank-you.html"; // Optional redirect
+    });
+  </script>
 </body>
 </html>
+
