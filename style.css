@@ -228,6 +228,15 @@ input[type="email"] {
   border-radius: 8px;
 }
 
+.product img {
+  width: 100%;
+  max-width: 300px; /* Adjust this value as needed */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
 
 
 .product-info {
