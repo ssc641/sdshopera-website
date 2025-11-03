@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff Dashboard — SD Shopera Danceny Furnitures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">SD</div>
+        <div>
+          <div class="brand-name">SD Shopera Danceny Furnitures</div>
+          <div class="tagline">Staff Dashboard</div>
+        </div>
+      </div>
+      <nav id="main-navbar">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1>Incoming Orders</h1>
+      <div id="orders-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> SD Shopera Danceny Furnitures</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Sample orders for testing (replace with real data source later)
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    const container = document.getElementById("orders-container");
+
+    if (orders.length === 0) {
+      container.innerHTML = "<p>No orders yet.</p>";
+    } else {
+      orders.forEach((order, index) => {
+        const div = document.createElement("div");
+        div.className = "order-card";
+        div.innerHTML = `
+          <h3>Order #${index + 1}</h3>
+          <p><strong>Recipient:</strong> ${order.name}</p>
+          <p><strong>Phone:</strong> ${order.phone}</p>
+          <p><strong>Address:</strong> ${order.address}</p>
+          <p><strong>Payment Method:</strong> ${order.payment_method}</p>
+          <p><strong>Transaction Ref:</strong> ${order.reference}</p>
+          <p><strong>Items:</strong></p>
+          <ul>${order.cart.map(item => `<li>${item.product} - $${item.price}</li>`).join("")}</ul>
+          <p><strong>Total:</strong> $${order.cart.reduce((sum, item) => sum + parseFloat(item.price), 0).toFixed(2)}</p>
+          <label for="status-${index}"><strong>Status:</strong></label>
+          <select id="status-${index}" onchange="updateStatus(${index}, this.value)">
+            <option value="Pending" ${order.status === "Pending" ? "selected" : ""}>Pending</option>
+            <option value="Confirmed" ${order.status === "Confirmed" ? "selected" : ""}>Confirmed</option>
+            <option value="Delivered" ${order.status === "Delivered" ? "selected" : ""}>Delivered</option>
+          </select>
+          <hr>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function updateStatus(index, newStatus) {
+      orders[index].status = newStatus;
+      localStorage.setItem("orders", JSON.stringify(orders));
+      alert(`Order #${index + 1} status updated to ${newStatus}`);
+    }
+  </script>
+</body>
+</html>
