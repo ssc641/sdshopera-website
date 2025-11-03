@@ -136,6 +136,31 @@
       window.location.href = "thank-you.html"; // Optional redirect
     });
   </script>
+  <script>
+  document.getElementById("checkout-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const order = {
+      name: form.name.value,
+      phone: form.phone.value,
+      address: form.address.value,
+      payment_method: form.payment_method.value,
+      reference: form.reference.value,
+      cart: cartItems,
+      status: "Pending"
+    };
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.removeItem("cart");
+
+    alert("Order submitted! We’ll confirm once payment reflects.");
+    window.location.href = "thank-you.html"; // or redirect to dashboard.html if you prefer
+  });
+</script>
+
 </body>
 </html>
 
