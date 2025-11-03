@@ -220,10 +220,15 @@ input[type="email"] {
   gap: 20px;
 }
 
-.product img {
+.product-card img {
   width: 100%;
+  max-width: 250px; /* Adjust this value as needed */
+  height: auto;
+  object-fit: cover;
   border-radius: 8px;
 }
+
+
 
 .product-info {
   display: flex;
